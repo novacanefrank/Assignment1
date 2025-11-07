@@ -1,3 +1,7 @@
+abstract class InterestBearing {
+  void calculateInterest();
+}
+
 abstract class BankAccount {
   final String _accountNumber;
   String _accountHolderName;
@@ -27,7 +31,8 @@ abstract class BankAccount {
   }
   
 }
-class SavingsAccount extends BankAccount {
+
+class SavingsAccount extends BankAccount implements InterestBearing {
   final  double _minimumBalance = 500.0;
   final  double _interestRate = 0.02;
   final  int _withdrawalLimit = 3;
@@ -56,6 +61,7 @@ class SavingsAccount extends BankAccount {
     print('Deposited \\$amount. New balance: \\$_balance');
   }
 
+  @override
   void calculateInterest() {
     double interest = _balance * _interestRate;
     _balance += interest;
@@ -85,7 +91,7 @@ class CheckingAccount extends BankAccount {
   }
 }
 
-class PremiumAccount extends BankAccount {
+class PremiumAccount extends BankAccount implements InterestBearing {
   final double _minimumBalance = 10000.0;
   final double _interestRate = 0.05;
 
@@ -107,6 +113,7 @@ class PremiumAccount extends BankAccount {
     print('Deposited \\$amount. New balance: \\$_balance');
   }
 
+  @override
   void calculateInterest() {
     double interest = _balance * _interestRate;
     _balance += interest;
@@ -149,4 +156,3 @@ class Bank {
     });
   }
 }
-
