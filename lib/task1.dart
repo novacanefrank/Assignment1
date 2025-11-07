@@ -28,9 +28,9 @@ abstract class BankAccount {
   
 }
 class SavingsAccount extends BankAccount {
-  final  double _minimumBalance = 1000.0;
-  final  double _interestRate = 0.05;
-  final  int _withdrawalLimit = 5;
+  final  double _minimumBalance = 500.0;
+  final  double _interestRate = 0.02;
+  final  int _withdrawalLimit = 3;
   int _withdrawalsThisMonth = 0;
 
   SavingsAccount(super._accountNumber, super._accountHolderName, super._balance);
